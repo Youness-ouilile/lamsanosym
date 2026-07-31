@@ -25,7 +25,7 @@ export const products = [
     category: 'bags',
     price: 150,
     rating: 4.8,
-    image: 'public/products/1000140605.png',
+    image: '/public/products/1000140605.png',
     description: { 
       en: 'Handmade upcycled denim crossbody bag with leather accents and adjustable strap. Perfect for daily use.',
       fr: 'Sac à main bandoulière en denim upcyclé fabriqué à la main avec détails en cuir et sangle réglable.',
@@ -43,7 +43,7 @@ export const products = [
     category: 'bags',
     price: 130,
     rating: 4.9,
-    image: 'public/products/IMG-20260728-WA0038.jpg',
+    image: '/public/products/IMG-20260728-WA0038.jpg',
     description: { 
       en: 'Spacious tote bag made from reclaimed denim patches. Great for shopping, work, or travel.',
       fr: 'Grand sac de transport spacieux fabriqué à partir de patchs de denim récupérés.',
@@ -61,7 +61,7 @@ export const products = [
     category: 'bags',
     price: 150,
     rating: 4.6,
-    image: 'public/products/IMG-20260728-WA0034.jpg',
+    image: '/public/products/IMG-20260728-WA0034.jpg',
     description: { 
       en: 'Compact wallet with zippered compartments. Perfect for organizing cards, coins, and essentials.',
       fr: 'Portefeuille compact avec compartiments zippés pour les cartes et pièces.',
@@ -135,7 +135,7 @@ export const products = [
     category: 'canvas',
     price: 250,
     rating: 4.7,
-    image: 'public/products/1000141182.png',
+    image: '/public/products/1000141182.png',
     description: { 
       en: 'Hand-painted abstract canvas using recycled fabric dyes. Unique art piece for any space.',
       fr: 'Toile abstraite peinte à la main avec des teintures de tissu recyclées. Pièce d\'art unique.',
