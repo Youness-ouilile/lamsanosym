@@ -186,13 +186,13 @@ const teamMembers = [
     id: 1,
     name: 'Samira Amkhaou',
     role: { en: 'Team Leader', fr: 'Chef d\'équipe', ar: 'قائد الفريق' },
-    image: '/public/team/IMG-20260212-WA0030.jpg'
+    image: '/team/IMG-20260212-WA0030.jpg'
   },
   {
     id: 2,
     name: 'Youness Ouilile',
     role: { en: 'Designer & Co-creator', fr: 'Designer & Co-créateur', ar: 'مصمم ومشارك في الابتكار' },
-    image: '/public/team/1763064983904.jpg'
+    image: '/team/1763064983904.jpg'
   },
   {
     id: 3,
