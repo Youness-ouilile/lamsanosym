@@ -25,7 +25,7 @@ export const products = [
     category: 'bags',
     price: 150,
     rating: 4.8,
-    image: '/public/products/1000140605.png',
+    image: '/products/1000140605.png',
     description: { 
       en: 'Handmade upcycled denim crossbody bag with leather accents and adjustable strap. Perfect for daily use.',
       fr: 'Sac à main bandoulière en denim upcyclé fabriqué à la main avec détails en cuir et sangle réglable.',
