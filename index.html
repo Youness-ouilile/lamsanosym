@@ -1,321 +1,196 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LAMSANO SYM - Eco-Friendly Fashion & Art</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- 🔹 NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-container">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    
+    <!-- Viewport & Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LAMSANO SYM" />
+    
+    <!-- SEO & Meta -->
+    <title>LAMSANO SYM - Eco-Friendly Upcycled Handmade Denim Accessories & Canvas Art</title>
+    <meta name="description" content="Discover LAMSANO SYM's sustainable upcycled denim accessories and handmade canvas art. Supporting the circular economy with eco-conscious fashion and design." />
+    <meta name="keywords" content="upcycled, sustainable fashion, eco-friendly, handmade denim, canvas art, circular economy, ethical shopping" />
+    <meta name="author" content="LAMSANO SYM - ENACTUS / INJAZ Al-Maghrib" />
+    <meta name="theme-color" content="#10b981" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lamsano-sym.com" />
+    <meta property="og:title" content="LAMSANO SYM - Sustainable Upcycled Fashion & Art" />
+    <meta property="og:description" content="Transform textile waste into stunning handmade denim accessories and canvas art. Sustainable luxury fashion." />
+    <meta property="og:image" content="https://lamsano-sym.com/og-image.jpg" />
+    <meta property="og:site_name" content="LAMSANO SYM" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lamsano-sym.com" />
+    <meta name="twitter:title" content="LAMSANO SYM - Sustainable Upcycled Fashion & Art" />
+    <meta name="twitter:description" content="Transform textile waste into stunning handmade denim accessories and canvas art." />
+    <meta name="twitter:image" content="https://lamsano-sym.com/og-image.jpg" />
+    <meta name="twitter:creator" content="@lamsano_sym" />
+    
+    <!-- LinkedIn -->
+    <meta property="linkedin:title" content="LAMSANO SYM" />
+    <meta property="linkedin:description" content="Eco-friendly upcycled fashion brand transforming textile waste into sustainable luxury." />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lamsano-sym.com" />
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="en" href="https://lamsano-sym.com" />
+    <link rel="alternate" hreflang="fr" href="https://lamsano-sym.com?lang=fr" />
+    <link rel="alternate" hreflang="ar" href="https://lamsano-sym.com?lang=ar" />
+    
+    <!-- Preconnect to External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.unsplash.com" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700;800&family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon & App Icons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/src/index.css" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/segoeui/v14/ga0iw0d5LRtXyd3J6X5DSA.woff2" type="font/woff2" crossorigin />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LAMSANO SYM",
+      "alternateName": ["Lamsano", "LAMSANO"],
+      "description": "Eco-friendly upcycled denim accessories and handmade canvas art",
+      "url": "https://lamsano-sym.com",
+      "logo": "https://lamsano-sym.com/logo.png",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "contact@lamsano-sym.com",
+        "telephone": "+212612345678"
+      },
+      "sameAs": [
+        "https://instagram.com/lamsano_sym",
+        "https://facebook.com/lamsano.sym",
+        "https://twitter.com/lamsano_sym"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Morocco"
+      }
+    }
+    </script>
+    
+    <!-- Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "LAMSANO SYM",
+      "image": "https://lamsano-sym.com/logo.png",
+      "url": "https://lamsano-sym.com",
+      "telephone": "+212612345678",
+      "email": "contact@lamsano-sym.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MA",
+        "addressRegion": "Morocco"
+      }
+    }
+    </script>
+    
+    <!-- Product Schema Example -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Eco Denim Crossbody",
+      "image": "https://lamsano-sym.com/products/bag-1.jpg",
+      "description": "Handmade upcycled denim crossbody bag with leather accents",
+      "brand": "LAMSANO SYM",
+      "manufacturer": "LAMSANO SYM",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://lamsano-sym.com",
+        "priceCurrency": "USD",
+        "price": "45.00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- React App -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Google Analytics (Replace with your ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXXXXXX-X', {
+        'page_path': window.location.pathname,
+        'anonymize_ip': true
+      });
       
-      <!-- Logo -->
-      <div class="logo-box">
-        <div class="logo-icon"><img src="photo\IMG-20251222-WA0006-removebg-preview (1).png" alt="Logo" style="width: 35px; height: 35px;"></div>
-        <span class="logo-text">LAMSANO <span class="text-emerald">SYM</span></span>
-      </div>
-
-      <!-- Desktop Nav Links -->
-      <div class="nav-links desktop-only">
-        <a href="#home" data-i18n="nav.home">Home</a>
-        <a href="#products" data-i18n="nav.products">Products</a>
-        <a href="#customizer" data-i18n="nav.customizer">Customizer</a>
-        <a href="#about" data-i18n="nav.about">About Us</a>
-        <a href="#team" data-i18n="nav.team">Team</a>
-      </div>
-
-      <!-- Actions -->
-      <div class="nav-actions">
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button onclick="changeLanguage('en')" id="lang-en" class="lang-btn active">EN</button>
-          <button onclick="changeLanguage('fr')" id="lang-fr" class="lang-btn">FR</button>
-          <button onclick="changeLanguage('ar')" id="lang-ar" class="lang-btn">AR</button>
-        </div>
-
-        <!-- Shopping Cart Button -->
-        <button onclick="toggleCart(true)" class="cart-btn" aria-label="Cart">
-          <span class="icon">🛒</span>
-          <span id="cart-badge" class="cart-badge hidden">0</span>
-        </button>
-
-        <!-- Mobile Menu Button -->
-        <button onclick="toggleMobileMenu()" class="mobile-toggle mobile-only">
-          <span>☰</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="mobile-menu hidden">
-      <a href="#home" onclick="toggleMobileMenu(false)" data-i18n="nav.home">Home</a>
-      <a href="#products" onclick="toggleMobileMenu(false)" data-i18n="nav.products">Products</a>
-      <a href="#customizer" onclick="toggleMobileMenu(false)" data-i18n="nav.customizer">Customizer</a>
-      <a href="#about" onclick="toggleMobileMenu(false)" data-i18n="nav.about">About Us</a>
-      <a href="#team" onclick="toggleMobileMenu(false)" data-i18n="nav.team">Team</a>
-    </div>
-  </nav>
-
-  <!-- 🔹 HERO SECTION -->
-  <section id="home" class="hero-section">
-    <div class="hero-content">
-      <span class="badge-eco">
-        🛡️ Eco-Friendly & Sustainable Fashion
-      </span>
-      <h1 data-i18n="hero.title">
-        Upcycled Denim & Fabrics into Fashion & Art Pieces
-      </h1>
-      <p data-i18n="hero.subtitle">
-        Sustainable project transforming textile remnants into eco-friendly handmade denim bags and canvas paintings.
+      // Track page views
+      gtag('event', 'page_view', {
+        'page_title': document.title,
+        'page_location': window.location.href
+      });
+    </script>
+    
+    <!-- Facebook Pixel (Replace with your ID) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+    
+    <!-- No-script fallback -->
+    <noscript>
+      <p style="text-align: center; padding: 20px; font-size: 18px; color: #666;">
+        This website requires JavaScript to be enabled for the best experience.
+        Please enable JavaScript in your browser settings.
       </p>
-      <div class="hero-buttons">
-        <a href="#products" data-i18n="hero.ctaShop" class="btn btn-primary">
-          Explore Collection
-        </a>
-        <a href="#customizer" data-i18n="hero.ctaCustom" class="btn btn-outline">
-          Customize Product
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 🔹 PRODUCTS SECTION -->
-  <section id="products" class="products-section">
-    <div class="section-header">
-      <h2 data-i18n="products.title">Our Collection</h2>
-      
-      <!-- Filters -->
-      <div class="filter-buttons">
-        <button onclick="setProductFilter('all')" id="filter-all" data-i18n="products.all" class="filter-btn active">All</button>
-        <button onclick="setProductFilter('bags')" id="filter-bags" data-i18n="products.bags" class="filter-btn">Denim Bags & Accessories</button>
-        <button onclick="setProductFilter('canvas')" id="filter-canvas" data-i18n="products.canvas" class="filter-btn">Fabric Canvas Art</button>
-      </div>
-    </div>
-
-    <!-- Product Cards Grid -->
-    <div id="products-grid" class="products-grid">
-      <!-- Generated via JS -->
-    </div>
-  </section>
-
-  <!-- 🔹 INTERACTIVE CUSTOMIZER SECTION -->
-  <section id="customizer" class="customizer-section">
-    <div class="customizer-container">
-      <div class="section-header">
-        <span class="section-tag">Design Studio</span>
-        <h2 data-i18n="customizer.title">Interactive Design Studio</h2>
-        <p data-i18n="customizer.subtitle">Personalize your eco-friendly creation by choosing styles, colors, and notes</p>
-      </div>
-
-      <div class="customizer-card">
-        <!-- Options -->
-        <div class="customizer-form">
-          <div class="form-group">
-            <label data-i18n="customizer.baseProduct">Select Base Product:</label>
-            <div class="base-grid">
-              <button onclick="setCustomBase('bag')" id="btn-base-bag" class="base-btn active">
-                👜 <span data-i18n="customizer.bag">Denim Bag</span>
-              </button>
-              <button onclick="setCustomBase('canvas')" id="btn-base-canvas" class="base-btn">
-                🖼️ <span data-i18n="customizer.canvasArt">Canvas Artwork</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label data-i18n="customizer.patchStyle">Select Patch/Pattern:</label>
-            <select id="custom-patch" onchange="updateCustomizerPreview()" class="form-control">
-              <option value="patchFloral">🌿 Floral & Nature</option>
-              <option value="patchGeom">📐 Geometric Shapes</option>
-              <option value="patchCallig">✍️ Calligraphy</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label data-i18n="customizer.customNotes">Custom Notes/Text:</label>
-            <textarea id="custom-notes" rows="3" oninput="updateCustomizerPreview()" placeholder="Enter a name or special quote..." class="form-control"></textarea>
-          </div>
-
-          <button onclick="sendCustomQuoteToWhatsApp()" class="btn btn-emerald full-width">
-            <span>💬</span> <span data-i18n="customizer.sendQuote">Request Custom Quote via WhatsApp</span>
-          </button>
-        </div>
-
-        <!-- Live Preview -->
-        <div class="customizer-preview">
-          <div class="preview-icon">🖌️</div>
-          <h4 id="preview-base">Denim Bag</h4>
-          <p id="preview-patch" class="preview-badge">Floral & Nature</p>
-          <div id="preview-notes-container" class="preview-notes hidden">
-            "<span id="preview-notes"></span>"
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 🔹 ABOUT US SECTION -->
-  <section id="about" class="about-section">
-    <div class="about-container">
-      <span class="badge-blue">ENACTUS / INJAZ Al-Maghrib</span>
-      <h2 data-i18n="about.title">About LAMSANO SYM</h2>
-      <p data-i18n="about.text">
-        A green entrepreneurial project under ENACTUS & INJAZ Al-Maghrib. We promote circular economy by upcycling textile waste into high-value handmade accessories and artworks.
-      </p>
-    </div>
-  </section>
-
-  <!-- 🔹 TEAM SECTION -->
-<section class="team-section">
-  <div class="team-grid">
+    </noscript>
     
-    <!-- Member 1: Samira -->
-    <div class="team-card">
-      <div class="avatar-placeholder">
-        <img src="photo\IMG-20260212-WA0030.jpg" alt="Samira Amkhaou">
-      </div>
-      <h3>Samira Amkhaou</h3>
-      <h4>Team Leader</h4>
-      <p>Gestion de la vision globale, coordination entre les membres, supervision de la stratégie de développement et pilotage de l'exécution du projet.</p>
-    </div>
-
-    <!-- Member 2: Youness -->
-    <div class="team-card">
-      <div class="avatar-placeholder">
-        <img src="photo\1763064983904.jpg" alt="Youness Ouilile" onerror="this.src='https://ui-avatars.com/api/?name=Youness+Ouilile&background=10b981&color=fff';">
-      </div>
-      <h3>Youness Ouilile</h3>
-      <h4>Designer & Co-créateur</h4>
-      <p>Création de l'identité visuelle, conception des affiches, flyers et supports promotionnels, et design de tout ce qui est lié aux collections.</p>
-    </div>
-
-    <!-- Member 3: Sanae -->
-    <div class="team-card">
-      <div class="avatar-placeholder">
-        <img src="photo\IMG-20251223-WA0112.jpg" alt="Sanae Amentag">
-      </div>
-      <h3>Sanae Amentag</h3>
-      <h4>Finance Manager</h4>
-      <p>Gestion du budget, élaboration des études de faisabilité financière, calcul des coûts de production et définition des stratégies de prix.</p>
-    </div>
-
-    <!-- Member 4: Asmae -->
-    <div class="team-card">
-      <div class="avatar-placeholder">
-        <img src="https://ui-avatars.com/api/?name=Asmae+Aben&background=10b981&color=fff" alt="Asmae Aben">
-      </div>
-      <h3>Asmae Aben</h3>
-      <h4>Marketing Manager</h4>
-      <p>Conception de la stratégie marketing digital, gestion des campagnes publicitaires, animation des réseaux sociaux et relation client.</p>
-    </div>
-
-    <!-- Member 5: Sana -->
-    <div class="team-card">
-      <div class="avatar-placeholder">
-        <img src="https://ui-avatars.com/api/?name=Sana+Fhad&background=10b981&color=fff" alt="Sana Fhad">
-      </div>
-      <h3>Sana Fhad</h3>
-      <h4>Co-Finance & Operations</h4>
-      <p>Collaboration à la gestion budgétaire, appui à l'analyse financière du projet, et soutien à la coordination logistique et opérationnelle.</p>
-    </div>
-
-    
-
-  </div>
-</section>
-
-<!-- ==========================================
-     نافذة تكبير الصورة الشاملة (ضعها قبل </body>)
-     ========================================== -->
-<div id="imageModal" class="image-modal" onclick="closeZoom()">
-  <span class="close-btn">&times;</span>
-  <img class="modal-content" id="zoomedImg" alt="Zoomed Avatar">
-</div>
-
-  <!-- 🔹 FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Brand Info -->
-    <div class="footer-brand">
-      <p class="brand-title">LAMSANO SYM © <span id="year"></span></p>
-      <p class="sub">Crafted with passion for Sustainable Fashion & Eco-Art.</p>
-    </div>
-
-    <!-- Social & Contact Links -->
-    <div class="footer-socials">
-      <!-- Instagram Link -->
-      <a href="https://www.instagram.com/lamsano____sym?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-        <span>Instagram</span>
-      </a>
-
-      <!-- Gmail Link -->
-      <a href="lamsanosym06@gmail.com" class="social-link gmail" aria-label="Gmail">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        <span>Gmail</span>
-      </a>
-    </div>
-  </div>
-</footer>
-
-<!-- 🔹 SHOPPING CART MODAL -->
-<div id="cart-modal" class="modal-overlay hidden" onclick="if(event.target === this) toggleCart(false)">
-  <div class="cart-drawer">
-    
-    <!-- Header -->
-    <div class="cart-header">
-      <h3>🛒 <span data-i18n="cart.title">Shopping Cart</span></h3>
-      <button onclick="toggleCart(false)" class="close-btn">✕</button>
-    </div>
-
-    <!-- Empty Message -->
-    <div id="cart-empty" class="cart-empty">
-      Your cart is empty
-    </div>
-
-    <!-- Items List (Scrollable) -->
-    <div id="cart-items" class="cart-items hidden">
-      <!-- Generated via JS -->
-    </div>
-
-    <!-- Footer & Checkout Form -->
-    <div id="cart-checkout-container" class="cart-footer hidden">
-      <div class="cart-total">
-        <span>Estimated Total:</span>
-        <span id="cart-total" class="total-price">0 MAD</span>
-      </div>
-
-      <!-- Shipping Form -->
-      <div class="checkout-fields">
-        <h4>📋 Shipping Details</h4>
-        <div class="form-group">
-          <input type="text" id="cust-name" placeholder="Full Name *" required />
-        </div>
-        <div class="form-group-row">
-          <input type="text" id="cust-city" placeholder="City *" required />
-          <input type="text" id="cust-address" placeholder="Address *" required />
-        </div>
-      </div>
-
-      <button onclick="sendCartToWhatsApp()" class="btn btn-emerald full-width">
-        💬 Order via WhatsApp
-      </button>
-    </div>
-
-  </div>
-</div>
-  <script src="script.js"></script>
-</body>
+    <!-- PWA Support -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
 </html>
