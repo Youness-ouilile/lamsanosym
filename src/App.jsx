@@ -192,7 +192,7 @@ const teamMembers = [
     id: 2,
     name: 'Youness Ouilile',
     role: { en: 'Designer & Co-creator', fr: 'Designer & Co-créateur', ar: 'مصمم ومشارك في الابتكار' },
-    image: '/team/1763064983904.jpg'
+    image: './team/1763064983904.jpg'
   },
   {
     id: 3,
