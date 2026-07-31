@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Menu, X, Globe, Heart, Share2, Download, Plus, Minus, Trash2, MessageCircle, ChevronDown, Star, Home, Package, Palette, Users, Info, Send, ArrowRight } from 'lucide-react';
+import { ShoppingCart, Menu, X, Globe, Heart, Share2, Download, Plus, Minus, Trash2, MessageCircle, ChevronDown, Star, Home, Package, Palette, Users, Info, Send, ArrowRight, ZoomIn, Expand } from 'lucide-react';
 import products from './products'; // استيراد المنتجات من ملف منفصل
+
 
 // 🌍 i18n Translations
 const translations = {
@@ -220,13 +221,102 @@ const teamMembers = [
   }
 ];
 
+// ============ IMAGE LIGHTBOX MODAL ============
+// Full-screen viewer used for both product and team images.
+function ImageModal({ image, alt, onClose }) {
+  if (!image) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-5 right-5 text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition"
+        aria-label="Close"
+      >
+        <X size={26} />
+      </button>
+      <img
+        src={image}
+        alt={alt}
+        onClick={(e) => e.stopPropagation()}
+        className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+      />
+      {alt && (
+        <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium bg-black/40 px-4 py-1.5 rounded-full">
+          {alt}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ============ AMAZON-STYLE ZOOM IMAGE ============
+// Hover on desktop reveals a magnified region that follows the cursor.
+// Click (any device) opens the full-screen lightbox via onExpand.
+function ZoomImage({ src, alt, className = '', zoomScale = 2.2, onExpand }) {
+  const [isZooming, setIsZooming] = useState(false);
+  const [lensStyle, setLensStyle] = useState({});
+  const [bgStyle, setBgStyle] = useState({});
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    setLensStyle({
+      left: `${e.clientX - rect.left}px`,
+      top: `${e.clientY - rect.top}px`
+    });
+
+    setBgStyle({
+      backgroundImage: `url(${src})`,
+      backgroundSize: `${zoomScale * 100}%`,
+      backgroundPosition: `${x}% ${y}%`,
+      backgroundRepeat: 'no-repeat'
+    });
+  };
+
+  return (
+    <div
+      className={`relative overflow-hidden cursor-zoom-in ${className}`}
+      onMouseEnter={() => setIsZooming(true)}
+      onMouseLeave={() => setIsZooming(false)}
+      onMouseMove={handleMouseMove}
+      onClick={() => onExpand && onExpand(src, alt)}
+    >
+      <img src={src} alt={alt} className="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+
+      {/* Small "click to zoom" hint icon */}
+      <div className="absolute bottom-3 left-3 bg-white/90 rounded-full p-2 shadow-md opacity-80 group-hover:opacity-100 transition pointer-events-none">
+        <ZoomIn size={16} className="text-emerald-700" />
+      </div>
+
+      {/* Desktop hover magnifier lens (a small circular preview that tracks the cursor) */}
+      {isZooming && (
+        <div
+          className="hidden md:block absolute w-36 h-36 rounded-full border-4 border-white shadow-2xl pointer-events-none -translate-x-1/2 -translate-y-1/2 z-10"
+          style={{ ...lensStyle, ...bgStyle }}
+        ></div>
+      )}
+    </div>
+  );
+}
+
 // ============ PRODUCT CARD COMPONENT ============
-function ProductCard({ product, language, isRTL, onAddCart }) {
+function ProductCard({ product, language, isRTL, onAddCart, onImageExpand }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group hover:scale-105">
-      <div className="relative overflow-hidden h-80">
-        <img src={product.image} alt={product.name[language]} className="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
-        <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:scale-110 transition">
+      <div className="relative overflow-hidden h-80 group">
+        <ZoomImage
+          src={product.image}
+          alt={product.name[language]}
+          className="w-full h-full"
+          onExpand={onImageExpand}
+        />
+        <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:scale-110 transition z-10">
           <Heart size={20} className="text-emerald-600" />
         </div>
       </div>
@@ -257,6 +347,10 @@ function ProductCard({ product, language, isRTL, onAddCart }) {
 // ============ PRODUCTS PAGE COMPONENT ============
 function ProductsPage({ language, isRTL, t, onAddCart, onBack }) {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [modalImage, setModalImage] = useState(null); // { src, alt }
+
+  const handleImageExpand = (src, alt) => setModalImage({ src, alt });
+  const handleCloseModal = () => setModalImage(null);
 
   const filteredProducts = activeFilter === 'all'
     ? products
@@ -312,6 +406,7 @@ function ProductsPage({ language, isRTL, t, onAddCart, onBack }) {
               language={language}
               isRTL={isRTL}
               onAddCart={onAddCart}
+              onImageExpand={handleImageExpand}
             />
           ))}
         </div>
@@ -325,6 +420,8 @@ function ProductsPage({ language, isRTL, t, onAddCart, onBack }) {
           </div>
         )}
       </div>
+
+      <ImageModal image={modalImage?.src} alt={modalImage?.alt} onClose={handleCloseModal} />
     </div>
   );
 }
@@ -340,6 +437,7 @@ export default function LamsanoSYM() {
   const [customizerProduct, setCustomizerProduct] = useState('bag');
   const [customDesign, setCustomDesign] = useState('');
   const [currentPage, setCurrentPage] = useState('home'); // 'home' or 'products'
+  const [modalImage, setModalImage] = useState(null); // { src, alt } — used for home page lightbox (featured products + team)
 
   const t = translations[language];
   const isRTL = language === 'ar';
@@ -347,6 +445,9 @@ export default function LamsanoSYM() {
 
   // Get featured products (first 5)
   const featuredProducts = products.slice(0, 5);
+
+  const openImageModal = (src, alt) => setModalImage({ src, alt });
+  const closeImageModal = () => setModalImage(null);
 
   const addToCart = (product) => {
     const existing = cartItems.find(item => item.id === product.id);
@@ -635,7 +736,11 @@ export default function LamsanoSYM() {
               '/products/IMG-20260728-WA0038.jpg',
               '/products/1000141182.png'
             ].map((img, idx) => (
-              <div key={idx} className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition transform hover:scale-105">
+              <div
+                key={idx}
+                className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition transform hover:scale-105 cursor-zoom-in"
+                onClick={() => openImageModal(img, 'LAMSANO Product')}
+              >
                 <img src={img} alt="LAMSANO Product" className="w-full h-80 object-cover" />
               </div>
             ))}
@@ -660,6 +765,7 @@ export default function LamsanoSYM() {
                 language={language}
                 isRTL={isRTL}
                 onAddCart={addToCart}
+                onImageExpand={openImageModal}
               />
             ))}
           </div>
@@ -827,12 +933,18 @@ export default function LamsanoSYM() {
           className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center flex flex-col items-center group hover:-translate-y-1 border border-emerald-50"
         >
           {/* حاوية الصورة الدائرية بدلاً من الكرت المربع الضخم */}
-          <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 rounded-full overflow-hidden ring-4 ring-emerald-100 group-hover:ring-emerald-400 transition-all duration-300 shadow-inner">
+          <div
+            className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 rounded-full overflow-hidden ring-4 ring-emerald-100 group-hover:ring-emerald-400 transition-all duration-300 shadow-inner cursor-zoom-in"
+            onClick={() => openImageModal(member.image, member.name)}
+          >
             <img 
               src={member.image} 
               alt={member.name} 
               className="w-full h-full object-cover object-center group-hover:scale-110 transition duration-300" 
             />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+              <ZoomIn size={22} className="text-white opacity-0 group-hover:opacity-100 transition drop-shadow" />
+            </div>
           </div>
 
           {/* تفاصيل العضو */}
@@ -882,10 +994,10 @@ export default function LamsanoSYM() {
                 </li>
               </ul>
             </div>
-             <div class="footer-socials">
+             <div className="footer-socials">
    
-      <a href="https://www.instagram.com/lamsano____sym?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a href="https://www.instagram.com/lamsano____sym?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="social-link instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -894,8 +1006,8 @@ export default function LamsanoSYM() {
       </a>
 
      
-      <a href="lamsanosym06@gmail.com" class="social-link gmail" aria-label="Gmail">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a href="mailto:lamsanosym06@gmail.com" className="social-link gmail" aria-label="Gmail">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
@@ -915,6 +1027,8 @@ export default function LamsanoSYM() {
           </div>
         </div>
       </footer>
+
+      <ImageModal image={modalImage?.src} alt={modalImage?.alt} onClose={closeImageModal} />
     </div>
   );
 }
