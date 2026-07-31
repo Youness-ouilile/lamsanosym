@@ -381,14 +381,14 @@ export default function LamsanoSYM() {
     }\n\nTotal: $${cartTotal.toFixed(2)}\n\nPlease confirm availability and provide shipping details.`;
     
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/0613798674?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/+212613798674?text=${encoded}`, '_blank');
   };
 
   const sendCustomDesignToWhatsApp = () => {
     const message = `Hello LAMSANO SYM! I'd like to order a custom ${customizerProduct} with the following specifications:\n\nDesign Details: ${customDesign || 'See attached design sketch'}\n\nPlease provide a quote for this custom creation.\n\nThank you!`;
     
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/0613798674?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/+212613798674?text=${encoded}`, '_blank');
   };
 
   const scrollToSection = (section) => {
