@@ -631,9 +631,9 @@ export default function LamsanoSYM() {
           {/* Hero Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
-              'public/products/1000140605.png',
-              'public/products/IMG-20260728-WA0038.jpg',
-              'public/products/1000141182.png'
+              '/products/1000140605.png',
+              '/products/IMG-20260728-WA0038.jpg',
+              '/products/1000141182.png'
             ].map((img, idx) => (
               <div key={idx} className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition transform hover:scale-105">
                 <img src={img} alt="LAMSANO Product" className="w-full h-80 object-cover" />
