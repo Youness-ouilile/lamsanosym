@@ -192,31 +192,31 @@ const teamMembers = [
     id: 2,
     name: 'Youness Ouilile',
     role: { en: 'Designer & Co-creator', fr: 'Designer & Co-créateur', ar: 'مصمم ومشارك في الابتكار' },
-    image: './team/1763064983904.jpg'
+    image: '/team/1763064983904.jpg'
   },
   {
     id: 3,
     name: 'Sanae Amentag',
     role: { en: 'Finance Manage', fr: 'Gestion financière', ar: 'إدارة الشؤون المالية' },
-    image: '/public/team/IMG-20251223-WA0112.jpg'
+    image: '/team/IMG-20251223-WA0112.jpg'
   },
   {
     id: 4,
     name: 'Asmae Aben',
     role: { en: 'Marketing Manager', fr: 'Responsable marketing', ar: 'مديرة تسويق' },
-    image: '/public/team/IMG-20260729-WA0021.jpg'
+    image: '/team/IMG-20260729-WA0021.jpg'
   },
    {
     id: 4,
     name: 'Sana Fhad',
     role: { en: 'Co-Finance & Operations', fr: 'Co-responsable des finances et des opérations', ar: 'التمويل والعمليات المشتركة' },
-    image: '/public/team/IMG-20260729-WA0022.jpg'
+    image: '/team/IMG-20260729-WA0022.jpg'
   },
    {
     id: 4,
     name: 'Hiba Ben Thami',
     role: { en: 'Social Media Manager', fr: 'Responsable des réseaux sociaux', ar: 'مديرة وسائل التواصل الاجتماعي' },
-    image: '/public/team/IMG-20260731-WA0000.jpg'
+    image: '/team/IMG-20260731-WA0000.jpg'
   }
 ];
 
@@ -423,7 +423,7 @@ export default function LamsanoSYM() {
           <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('home')}>
             <div className="w-12   overflow-hidden flex items-center justify-center">
   <img 
-    src="/public/IMG-20251222-WA0006-removebg-preview (1).png" 
+    src="/IMG-20251222-WA0006-removebg-preview (1).png" 
     alt="Lamsano Sym Logo" 
     className="w-full h-full object-cover"
   />
@@ -843,7 +843,7 @@ export default function LamsanoSYM() {
               <div className="flex items-center gap-2 mb-4">
  <div className="w-12   overflow-hidden flex items-center justify-center">
   <img 
-    src="/public/IMG-20251222-WA0006-removebg-preview (1).png" 
+    src="/IMG-20251222-WA0006-removebg-preview (1).png" 
     alt="Lamsano Sym Logo" 
     className="w-full h-full object-cover"
   />
