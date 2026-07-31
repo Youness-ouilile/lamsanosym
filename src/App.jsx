@@ -812,28 +812,39 @@ export default function LamsanoSYM() {
       </section>
 
       {/* ============ TEAM SECTION ============ */}
-      <section id="team" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-emerald-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className={`text-center mb-12 ${isRTL ? 'text-right' : 'text-left'}`}>
-            <h2 className="text-5xl font-bold text-emerald-700 mb-4">{t.team.title}</h2>
-            <p className="text-gray-600 text-lg">{t.team.subtitle}</p>
+   <section id="team" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-emerald-50 to-white">
+  <div className="max-w-7xl mx-auto">
+    <div className={`text-center mb-12 ${isRTL ? 'text-right sm:text-center' : 'text-left sm:text-center'}`}>
+      <h2 className="text-3xl sm:text-5xl font-bold text-emerald-700 mb-4">{t.team.title}</h2>
+      <p className="text-gray-600 text-base sm:text-lg">{t.team.subtitle}</p>
+    </div>
+
+    {/* شبكة العرض: 2 في السطر للهواتف، 3 للأجهزة المتوسطة، 4 للشاشات الكبيرة */}
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+      {teamMembers.map(member => (
+        <div 
+          key={member.id} 
+          className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center flex flex-col items-center group hover:-translate-y-1 border border-emerald-50"
+        >
+          {/* حاوية الصورة الدائرية بدلاً من الكرت المربع الضخم */}
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 rounded-full overflow-hidden ring-4 ring-emerald-100 group-hover:ring-emerald-400 transition-all duration-300 shadow-inner">
+            <img 
+              src={member.image} 
+              alt={member.name} 
+              className="w-full h-full object-cover object-center group-hover:scale-110 transition duration-300" 
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map(member => (
-              <div key={member.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 group">
-                <div className="relative overflow-hidden h-64">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
-                </div>
-                <div className={`p-6 text-center ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{member.name}</h3>
-                  <p className="text-emerald-600 font-semibold text-sm">{member.role[language]}</p>
-                </div>
-              </div>
-            ))}
+          {/* تفاصيل العضو */}
+          <div className="w-full">
+            <h3 className="text-base sm:text-xl font-bold text-gray-800 mb-1 line-clamp-1">{member.name}</h3>
+            <p className="text-emerald-600 font-medium text-xs sm:text-sm line-clamp-2">{member.role[language]}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ============ FOOTER ============ */}
       <footer className="bg-gradient-to-r from-emerald-900 via-teal-900 to-cyan-900 text-white py-16 px-4 sm:px-6 lg:px-8">
